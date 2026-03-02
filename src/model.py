@@ -1,9 +1,13 @@
-# 1D Convolutional Neural Network for Exoplanet Detection
+# =============================================================================
+# src/model.py — 1D Convolutional Neural Network for Exoplanet Detection
+#
 # Architecture inspired by Shallue & Vanderburg (2018) "Identifying Exoplanets
 # with Deep Learning" — the Google Brain paper that detected 2 new exoplanets
 # using this exact approach on Kepler data.
+#
 # Input  : phase-folded, binned light curve  → shape (batch, 1, 201)
 # Output : class logits                       → shape (batch, 2)
+# =============================================================================
 
 import torch
 import torch.nn as nn
@@ -185,8 +189,9 @@ class ExoplanetCNN(nn.Module):
         return sum(p.numel() for p in self.parameters() if p.requires_grad)
 
 
+# ─────────────────────────────────────────────────────────────────────────────
 # Quick sanity check
-
+# ─────────────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     model = ExoplanetCNN()
