@@ -275,7 +275,7 @@ def train(force_rebuild: bool = False):
     log.info(f"Training on: {device}")
 
     # ── Data ──────────────────────────────────────────────────────────────────
-    X, y = build_dataset(force_rebuild=force_rebuild)
+    X, y = build_dataset(max_kois=5000, force_rebuild=force_rebuild)
     train_loader, val_loader, test_loader, y_test = make_dataloaders(X, y)
 
     # ── Model ─────────────────────────────────────────────────────────────────
@@ -358,7 +358,7 @@ def train(force_rebuild: bool = False):
     log.info(f"Test Loss: {test_loss:.4f} | Accuracy: {test_acc:.4f} | AUC: {test_auc:.4f}")
 
     # Detailed report — using same threshold as predict.py for consistency
-    PLANET_THRESHOLD = 0.68  # tuned for ~82% precision on confirmed planets
+    PLANET_THRESHOLD = 0.80  # tuned for ~82% precision on confirmed planets
 
     model.eval()
     all_preds, all_labels = [], []
@@ -415,4 +415,4 @@ def _plot_confusion_matrix(y_true, y_pred):
 
 
 if __name__ == "__main__":
-    train()
+    train(force_rebuild=True)  # force_rebuild=True discards old 1500-star cache and downloads fresh 5000 KOIs

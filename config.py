@@ -28,6 +28,9 @@ NASA_EXOPLANET_API = (
     "&format=csv"
 )
 
+# ── Dataset Size ──────────────────────────────────────────────────────────────────
+MAX_KOIS        = 5000      # use full NASA KOI catalog (was 1500)
+
 # ── Light Curve Preprocessing ──────────────────────────────────────────────────
 N_BINS          = 201       # number of phase bins for the folded light curve
 BIN_WIDTH_FRAC  = 0.16      # fraction of phase space each bin covers

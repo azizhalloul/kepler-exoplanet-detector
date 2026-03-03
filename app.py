@@ -39,6 +39,11 @@ with st.sidebar:
         "Kepler-22b (KIC 10593626)": 10593626,
         "Kepler-7b  (KIC 5780885)":  5780885,
         "Kepler-11  (KIC 6541920)":  6541920,
+        "KIC 7747457": 7747457,
+        "KIC 4932348": 4932348,
+        "KIC 8240746": 8240746,
+        "KIC 5444549": 5444549,
+        "KIC 4757331": 4757331,
     }
 
     example = st.selectbox("🌟 Try a famous system:", list(EXAMPLE_STARS.keys()))
