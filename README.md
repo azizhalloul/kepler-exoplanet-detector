@@ -80,7 +80,7 @@ python src/train.py
 streamlit run app.py
 ```
 
-Open **http://localhost:8501** — enter any Kepler star ID and get a live prediction.
+Open and enter any Kepler star ID and get a live prediction.
 
 ---
 
