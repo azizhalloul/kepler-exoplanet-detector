@@ -17,7 +17,7 @@
 
 <br/>
 
-![Status](https://img.shields.io/badge/Status-Live%20Demo%20Ready-00d4aa?style=for-the-badge)
+![Status](https://drive.google.com/file/d/1JSPrPdEjsvBow0pSFXe29Q5LFDKAfAAZ/view?usp=drive_link)
 
 </div>
 
@@ -39,34 +39,13 @@ Inspired by the [Google Brain paper](https://arxiv.org/abs/1712.05898) that used
 
 | Metric | Value |
 |--------|-------|
-|  AUC-ROC | **89.3%** |
-|  Accuracy | **87%** |
+|  AUC-ROC | **90%** |
+|  Accuracy | **84%** |
 |  Precision (Planet) | **77%** |
-|  Recall (Planet) | **75%** |
-|  Test Set | 225 stars |
-|  Training Data | 1,494 Kepler KOIs |
+|  Recall (Planet) | **78%** |
+|  Test Set | 749 stars |
+|  Training Data | 4993 Kepler KOIs |
 |  Classification Threshold | 0.68 |
-
----
-
-##  Architecture
-
-```
-Input: Phase-Folded Light Curve  (1 × 201 bins)
-              ↓
-ConvBlock 1 — Conv1d(1→16,  k=5) + BatchNorm + ReLU + MaxPool  →  (16 × 100)
-ConvBlock 2 — Conv1d(16→32, k=5) + BatchNorm + ReLU + MaxPool  →  (32 × 50)
-ConvBlock 3 — Conv1d(32→64, k=3) + BatchNorm + ReLU + MaxPool  →  (64 × 25)
-              ↓
-    Global Average Pooling  →  (64,)
-              ↓
-    FC(64→128) + ReLU + Dropout(0.5)
-    FC(128→2)
-              ↓
-Output: [P(False Positive), P(Confirmed Planet)]
-```
-
-**Total trainable parameters: ~17,700**
 
 ---
 
@@ -158,22 +137,6 @@ kepler-exoplanet-detector/
     └── confusion_matrix.png
 ```
 
----
-
-##  Training Details
-
-| Hyperparameter | Value |
-|----------------|-------|
-| Optimizer | AdamW |
-| Learning Rate | 1e-3 |
-| Weight Decay | 1e-4 |
-| Batch Size | 64 |
-| Max Epochs | 40 |
-| Early Stopping | 10 epochs |
-| LR Scheduler | ReduceLROnPlateau (×0.5) |
-| Class Imbalance | WeightedRandomSampler |
-| Dropout | 0.5 |
-| Random Seed | 42 |
 
 ---
 
@@ -181,7 +144,6 @@ kepler-exoplanet-detector/
 
 | Star | KIC ID | Expected Result |
 |------|--------|-----------------|
-| Kepler-22b | 10593626 |  Confirmed Planet |
 | Kepler-7b | 5780885 |  Confirmed Planet |
 | Kepler-11 | 6541920 |  Confirmed Planet |
 
@@ -209,16 +171,14 @@ kepler-exoplanet-detector/
 ##  Author
 
 **Aziz Halloul**  
-Engineering student in AI & Data Science — École Polytechnique de Nantes
+Engineering student in AI & Data Science — Polytech Nantes
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Aziz%20Halloul-0077B5?style=flat-square&logo=linkedin)](https://linkedin.com/in/aziz-halloul)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Aziz%20Halloul-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/halloul-aziz/)
 [![GitHub](https://img.shields.io/badge/GitHub-azizhalloul-181717?style=flat-square&logo=github)](https://github.com/azizhalloul)
 
 ---
 
 <div align="center">
-
-*Built as a portfolio project for an Airbus Defence & Space apprenticeship application.*
 
 **Python · PyTorch · lightkurve · Streamlit · NASA Open Data**
 
